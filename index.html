@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Dr. Kabasele Ilunga Bienvenu, MD">
+<meta property="og:description" content="Public health intelligence, outbreak data use and field epidemiology, Kinshasa, DR Congo.">
+<title>Kabasele Ilunga Bienvenu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Dr. Kabasele Ilunga Bienvenu, MD – public health intelligence, outbreak data use and field epidemiology, Kinshasa, DR Congo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  /* Layout: a field report. Sticky index bar, a hero with a case-file fact row, then report sections with a mono label column on the left. */
+  :root {
+    --bg: #f4f7f9;
+    --surface: #ffffff;
+    --ink: #13202b;
+    --muted: #536472;
+    --rule: #d4dde4;
+    --accent: #0a6aa0;      /* DRC sky blue, deepened for text contrast */
+    --accent-soft: #e2eff7;
+    --mark: #f3c531;        /* DRC yellow: used once, as the highlighter */
+    --mark-ink: #13202b;
+    --range: #9cc7e0;
+    --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    --wrap: 1120px;
+    --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+    --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b131a; --surface: #111c25; --ink: #e5edf3; --muted: #97a9b7; --rule: #233340;
+      --accent: #5cb6ea; --accent-soft: #11314a; --mark: #f3c531; --mark-ink: #13202b; --range: #2c6286;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b131a; --surface: #111c25; --ink: #e5edf3; --muted: #97a9b7; --rule: #233340;
+    --accent: #5cb6ea; --accent-soft: #11314a; --mark: #f3c531; --mark-ink: #13202b; --range: #2c6286;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  [hidden] { display: none !important; }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+  .mono { font-family: var(--mono); }
+  .label { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+  /* Header */
+  .topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+  .topbar .wrap { display: flex; align-items: center; gap: 20px; padding-block: 10px; }
+  .brand { font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: 1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .brand span { color: var(--accent); }
+  nav { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
+  nav a { font-size: 0.88rem; color: var(--muted); text-decoration: none; white-space: nowrap; }
+  nav a:hover { color: var(--ink); }
+  .lang { display: flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; flex-shrink: 0; }
+  .lang button { font-family: var(--mono); font-size: 0.78rem; padding: 5px 10px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+
+  /* Hero */
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 56px; padding-block: 64px 48px; align-items: start; }
+  .eyebrow { margin: 0 0 18px; }
+  h1 { font-family: var(--display); font-weight: 800; font-stretch: 118%; font-size: clamp(2.3rem, 6.2vw, 4.4rem); line-height: 0.98; letter-spacing: -0.01em; margin: 0 0 26px; text-wrap: balance; }
+  h1 .dr { display: block; font-size: 0.34em; font-weight: 600; font-stretch: 100%; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 10px; }
+  .thesis { font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.35; font-weight: 500; margin: 0 0 18px; max-width: 34ch; text-wrap: balance; }
+  .thesis mark { background: linear-gradient(transparent 58%, var(--mark) 58%, var(--mark) 92%, transparent 92%); color: inherit; padding: 0 2px; }
+  .sub { color: var(--muted); max-width: 62ch; margin: 0 0 28px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.95rem; padding: 10px 18px; border-radius: 6px; text-decoration: none; border: 1px solid var(--ink); color: var(--ink); background: transparent; }
+  .btn.primary { background: var(--ink); color: var(--bg); }
+  .btn:hover { transform: translateY(-1px); }
+  .btn { transition: transform .15s ease; }
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .facts div { padding: 14px 16px 14px 0; display: grid; gap: 4px; align-content: start; }
+  .facts div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+  .facts strong { font-family: var(--display); font-stretch: 108%; font-size: 1.15rem; font-weight: 700; }
+  .portrait { margin: 0; }
+  .portrait img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 30%; border-radius: 4px; filter: saturate(0.95); box-shadow: 10px 10px 0 var(--accent-soft); }
+  .portrait figcaption { margin-top: 14px; }
+
+  /* Sections */
+  section { padding-block: 56px; border-top: 1px solid var(--rule); }
+  .sec { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; }
+  .sec > .label { padding-top: 8px; }
+  h2 { font-family: var(--display); font-weight: 750; font-stretch: 110%; font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.1; margin: 0 0 18px; text-wrap: balance; }
+  h3 { font-family: var(--display); font-weight: 700; font-stretch: 104%; font-size: 1.12rem; line-height: 1.25; margin: 0 0 6px; text-wrap: balance; }
+  p { margin: 0 0 14px; }
+  .prose p { max-width: 66ch; }
+
+  /* Results band */
+  .results { background: var(--surface); }
+  .results .intro { color: var(--muted); max-width: 66ch; margin-bottom: 30px; }
+  .bars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; margin-bottom: 36px; }
+  .metric h3 { font-size: 1rem; margin-bottom: 12px; }
+  .bar { display: grid; grid-template-columns: 56px minmax(0, 1fr) 84px; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .track { position: relative; height: 14px; background: var(--bg); border-radius: 2px; overflow: hidden; }
+  .fill { position: absolute; inset: 0 auto 0 0; background: var(--muted); opacity: 0.45; }
+  .fill.after { background: var(--accent); opacity: 1; }
+  .fill.range { background: var(--range); opacity: 1; }
+  .val { font-family: var(--mono); font-size: 0.92rem; font-variant-numeric: tabular-nums; text-align: right; }
+  .val.after { color: var(--accent); font-weight: 500; }
+  .figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); }
+  .figs div { padding: 18px 18px 4px 0; }
+  .figs div + div { padding-left: 18px; border-left: 1px solid var(--rule); }
+  .figs strong { display: block; font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 2rem; line-height: 1; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+  .figs span { color: var(--muted); font-size: 0.92rem; line-height: 1.45; display: block; }
+
+  /* Expertise */
+  .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+  .grid2 p { color: var(--muted); margin: 0; }
+
+  /* Work cards */
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .card .label { color: var(--accent); }
+  .card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+  /* Experience */
+  .roles { list-style: none; margin: 0 0 40px; padding: 0; display: grid; gap: 0; }
+  .roles li { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .roles li:first-child { border-top: 1px solid var(--rule); }
+  .roles .when { font-family: var(--mono); font-size: 0.86rem; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+  .roles .org { color: var(--muted); font-size: 0.95rem; margin: 0; }
+  .log-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 0.93rem; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-family: var(--mono); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: var(--bg); }
+  tr:last-child td { border-bottom: 0; }
+  td.d { font-family: var(--mono); font-size: 0.86rem; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
+  td.p { white-space: nowrap; }
+  .sublabel { margin: 0 0 12px; }
+
+  /* Education */
+  .edu { display: grid; gap: 18px; margin-bottom: 32px; }
+  .edu > div { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 20px; }
+  .edu .when { font-family: var(--mono); font-size: 0.86rem; color: var(--muted); padding-top: 2px; }
+  .edu p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 22px; }
+  .chips li { font-family: var(--mono); font-size: 0.82rem; padding: 4px 10px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); }
+
+  /* Publications */
+  .pubs { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
+  .pubs li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; }
+  .pubs .yr { font-family: var(--mono); color: var(--muted); font-size: 0.9rem; padding-top: 2px; }
+  .pubs .t { font-weight: 600; display: block; }
+  .pubs .m { color: var(--muted); font-size: 0.93rem; }
+
+  /* Contact */
+  .contact-list { display: grid; gap: 0; margin-top: 8px; max-width: 640px; }
+  .contact-list > div { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .contact-list > div:first-child { border-top: 1px solid var(--rule); }
+  .contact-list .v { font-family: var(--mono); font-size: 0.95rem; overflow-wrap: anywhere; }
+  .copy { font-family: var(--mono); font-size: 0.78rem; padding: 5px 10px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); color: var(--ink); cursor: pointer; }
+  .copy:hover { border-color: var(--ink); }
+
+  footer { border-top: 1px solid var(--rule); padding-block: 28px 40px; color: var(--muted); font-size: 0.85rem; }
+
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 40px 36px; }
+    .portrait { max-width: 220px; order: -1; }
+    .portrait img { box-shadow: 6px 6px 0 var(--accent-soft); }
+    .sec { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .figs div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .figs div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  }
+  @media (max-width: 640px) {
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .facts div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    .bars, .grid2, .cards { grid-template-columns: minmax(0, 1fr); }
+    .roles li, .edu > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    .contact-list > div { grid-template-columns: minmax(0, 1fr) auto; }
+    .contact-list .k { grid-column: 1 / -1; }
+    .brand-full { display: none; }
+    .portrait { max-width: 150px; }
+    section { padding-block: 40px; }
+  }
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">K<span>.</span>I<span>.</span>B<span class="brand-full"> · MD</span></a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#results" data-i18n="nav_results">Results</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#work" data-i18n="nav_work">Work</a></li>
+        <li><a href="#experience" data-i18n="nav_exp">Experience</a></li>
+        <li><a href="#education" data-i18n="nav_edu">Education</a></li>
+        <li><a href="#publications" data-i18n="nav_pubs">Publications</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="true" aria-label="English">EN</button>
+      <button type="button" id="lang-fr" data-lang="fr" aria-pressed="false" aria-label="Français">FR</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow label" data-i18n="eyebrow">Medical doctor · Public health intelligence · Field epidemiology</p>
+        <h1><span class="dr">Dr.</span>Kabasele Ilunga Bienvenu</h1>
+        <p class="thesis" data-i18n="thesis">I turn outbreak data into <mark>decisions</mark>, and help national teams keep doing it on their own.</p>
+        <p class="sub" data-i18n="sub">Public Health Intelligence Officer at the national Public Health Emergency Operations Center (COUSP) of the DRC's National Institute of Public Health. Ten years in medicine and public health, seven of them in outbreak surveillance and response.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact" data-i18n="cta_contact">Get in touch</a>
+          <a class="btn" href="#work" data-i18n="cta_work">See selected work</a>
+        </div>
+        <div class="facts">
+          <div><span class="label" data-i18n="f_base">Based in</span><strong>Kinshasa</strong><span class="label">WAT · UTC+1</span></div>
+          <div><span class="label" data-i18n="f_ebola">Ebola responses</span><strong>4</strong><span class="label">2019 – 2026</span></div>
+          <div><span class="label" data-i18n="f_prov">Field provinces</span><strong>9</strong><span class="label" data-i18n="f_prov_s">DR Congo</span></div>
+          <div><span class="label" data-i18n="f_lang">Languages</span><strong>FR · EN</strong><span class="label" data-i18n="f_lang_s">Native · Professional</span></div>
+        </div>
+      </div>
+      <figure class="portrait">
+        <img src="data:image/jpeg;base64,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" alt="Portrait of Dr. Kabasele Ilunga Bienvenu" width="480" height="640" data-i18n-alt="alt_photo">
+        <figcaption class="label">INSP · COUSP · Kinshasa</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section class="results" id="results">
+    <div class="wrap sec">
+      <div class="label" data-i18n="l_results">Field results</div>
+      <div>
+        <h2 data-i18n="h_results">17th Ebola response, Tshopo Province</h2>
+        <p class="intro" data-i18n="results_intro">Bundibugyo virus, 16 July – 22 September 2026. I coordinated the national rapid response team inside the provincial Incident Management System (IMS), alongside the Tshopo Provincial Health Division.</p>
+        <div class="bars">
+          <div class="metric">
+            <h3 data-i18n="m_ims">IMS recommendations carried out</h3>
+            <div class="bar"><span class="label" data-i18n="before">Before</span><div class="track"><div class="fill" style="width:40%"></div></div><span class="val" data-i18n="v40">40%</span></div>
+            <div class="bar"><span class="label" data-i18n="after">After</span><div class="track"><div class="fill after" style="width:76%"></div></div><span class="val after" data-i18n="v76">76%</span></div>
+          </div>
+          <div class="metric">
+            <h3 data-i18n="m_alerts">Alerts investigated</h3>
+            <div class="bar"><span class="label" data-i18n="before2">Before</span><div class="track"><div class="fill" style="width:70%"></div></div><span class="val" data-i18n="v70">70%</span></div>
+            <div class="bar"><span class="label" data-i18n="after2">After</span><div class="track"><div class="fill range" style="width:100%"></div><div class="fill after" style="width:96%"></div></div><span class="val after" data-i18n="v96">96–100%</span></div>
+          </div>
+        </div>
+        <div class="figs">
+          <div><strong>55</strong><span data-i18n="fig_sitrep">daily provincial SITREPs, 92% on time</span></div>
+          <div><strong>77</strong><span data-i18n="fig_dhis2">provincial staff trained on DHIS2 Tracker</span></div>
+          <div><strong>14</strong><span data-i18n="fig_partners">partners aligned around one IMS, including WHO, Africa CDC and US CDC</span></div>
+          <div><strong>12→31</strong><span data-i18n="fig_beds">treatment-centre beds, an expansion informed by our capacity assessment</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap sec">
+      <div class="label" data-i18n="l_about">About</div>
+      <div class="prose">
+        <h2 data-i18n="h_about">From the hospital ward to the emergency operations centre</h2>
+        <p data-i18n="about_1">I am a medical doctor based in Kinshasa. I began as a hospital physician in Mungbere, Haut-Uélé, then moved into outbreak response: Ebola in Butembo and Mbandaka, COVID-19 with UN Volunteers, then Mpox, measles-rubella and cholera.</p>
+        <p data-i18n="about_2">Since October 2024 I have worked at the COUSP, where I turn surveillance data into products that leaders use: SPOTREPs, the weekly surveillance bulletin, risk assessments and dashboards. I build these in R and Quarto so they can be regenerated automatically, and I train and mentor the people who will run them.</p>
+        <p data-i18n="about_3">I am completing an MPH in Biostatistics at the Université des Montagnes. My research builds an integrated tool to predict the risk of zoonotic outbreaks, combining surveillance, climate, environmental and health-zone vulnerability data with socio-anthropological factors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="wrap sec">
+      <div class="label" data-i18n="l_exp">What I do</div>
+      <div class="grid2">
+        <div><h3 data-i18n="x1_h">Data use for decision-making</h3><p data-i18n="x1_p">Outbreak SITREPs, SPOTREPs, epidemiological and surveillance bulletins, rapid risk assessments (7-1-7), dashboards and SEIR-type projections.</p></div>
+        <div><h3 data-i18n="x2_h">Analytics and automated pipelines</h3><p data-i18n="x2_p">R, R Markdown/Quarto, Shiny and GIS in R, with Git/GitHub; DHIS2 Tracker and Event, KoboToolbox/ODK, Looker Studio, Stata.</p></div>
+        <div><h3 data-i18n="x3_h">Capacity building and accompaniment</h3><p data-i18n="x3_p">Training design and delivery, hands-on mentoring of surveillance and data teams, and SOPs that make handover last.</p></div>
+        <div><h3 data-i18n="x4_h">Collaborative surveillance and coordination</h3><p data-i18n="x4_p">Indicator-, event- and community-based surveillance, IDSR, Incident Management Systems and coordination with WHO, Africa CDC, US CDC, UNICEF and other partners.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap sec">
+      <div class="label" data-i18n="l_work">Selected work</div>
+      <div>
+        <h2 data-i18n="h_work">Projects and products</h2>
+        <div class="cards">
+          <article class="card"><span class="label">2026 · Tshopo</span><h3 data-i18n="w1_h">Coordinating the 17th Ebola response</h3><p data-i18n="w1_p">Led a seven-member national team (coordination, data, surveillance, points of entry, IPC, case management, laboratory). Harmonised surveillance and laboratory data, ran a recommendation-tracking register and coordinated the final mission report with SEIR-type six-month projections.</p></article>
+          <article class="card"><span class="label" data-i18n="w2_l">2024 – present · COUSP</span><h3 data-i18n="w2_h">Health intelligence products</h3><p data-i18n="w2_p">SPOTREPs on verified public health threats, the weekly surveillance bulletin and daily signal-verification reports for COUSP leadership. I also helped redesign the workflow from signal intake to verification, SPOTREP and bulletin.</p></article>
+          <article class="card"><span class="label">R · Quarto · GRID3</span><h3 data-i18n="w3_h">Dynamic Ebola preparedness atlas</h3><p data-i18n="w3_p">Maps for the national preparedness team showing affected, high-risk and mobility-exposed health zones on GRID3 boundaries, regenerated with each new situation update.</p></article>
+          <article class="card"><span class="label">2025 · Bulape, Kasaï</span><h3 data-i18n="w4_h">Operational research, 16th Ebola outbreak</h3><p data-i18n="w4_p">Led the operational research pillar: research protocols, a study of how local customs and traditional practices shaped transmission and response, and after-action review documentation.</p></article>
+          <article class="card"><span class="label" data-i18n="w5_l">2025 · with UNICEF and FHI 360</span><h3 data-i18n="w5_h">Risk communication data systems</h3><p data-i18n="w5_p">RCCE database and call-centre dashboards for the Mpox and cholera responses.</p></article>
+          <article class="card"><span class="label" data-i18n="w6_l">2025 · with Africa CDC</span><h3 data-i18n="w6_h">Surveillance data quality assessment</h3><p data-i18n="w6_p">Assessed the completeness, timeliness and consistency of zoonotic disease surveillance data.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap sec">
+      <div class="label" data-i18n="l_xp">Experience</div>
+      <div>
+        <h2 data-i18n="h_xp">Positions</h2>
+        <ul class="roles">
+          <li><span class="when" data-i18n="r1_d">Jul – Sep 2026</span><div><h3 data-i18n="r1_h">Provincial Coordinator, National Rapid Response Team</h3><p class="org" data-i18n="r1_o">INSP/COUSP · 17th Ebola response · Kisangani, Tshopo</p></div></li>
+          <li><span class="when" data-i18n="r2_d">Oct 2024 – present</span><div><h3 data-i18n="r2_h">Public Health Intelligence Officer, Indicator-Based Surveillance and Research &amp; Innovation</h3><p class="org" data-i18n="r2_o">COUSP · National Institute of Public Health (INSP) · Kinshasa</p></div></li>
+          <li><span class="when" data-i18n="r3_d">Aug – Sep 2022</span><div><h3 data-i18n="r3_h">Field Surveillance Supervisor</h3><p class="org" data-i18n="r3_o">Ministry of Health / INSP · 15th Ebola outbreak · Mbandaka, Équateur</p></div></li>
+          <li><span class="when">2020 – 2022</span><div><h3 data-i18n="r4_h">Health Zone Coordinator, COVID-19 response</h3><p class="org" data-i18n="r4_o">United Nations Volunteers · Kinshasa and Lingwala health zones</p></div></li>
+          <li><span class="when" data-i18n="r5_d">Oct 2019 – Jun 2020</span><div><h3 data-i18n="r5_h">Response Support and Surveillance Reporting</h3><p class="org" data-i18n="r5_o">Ministry of Health · 10th Ebola outbreak · Butembo, North Kivu</p></div></li>
+          <li><span class="when">2016 – 2019</span><div><h3 data-i18n="r6_h">Medical Doctor</h3><p class="org" data-i18n="r6_o">Mungbere ANOALITE Hospital · Haut-Uélé</p></div></li>
+        </ul>
+        <p class="label sublabel" data-i18n="log_l">Field deployment log · INSP/COUSP</p>
+        <div class="log-wrap">
+          <table>
+            <thead><tr><th data-i18n="th_d">Dates</th><th data-i18n="th_p">Place</th><th data-i18n="th_a">Assignment</th></tr></thead>
+            <tbody>
+              <tr><td class="d">06/2026</td><td class="p" data-i18n="d1_p">Kinshasa &amp; provinces</td><td data-i18n="d1_a">Measles–rubella IMS, Operations Officer: digital health-zone reporting tools across ten provinces</td></tr>
+              <tr><td class="d">06–07/2026</td><td class="p">Kwilu</td><td data-i18n="d2_a">Acute digestive syndrome investigation (about 60 patients, 15 deaths), rapid risk assessment with the 7-1-7 framework</td></tr>
+              <tr><td class="d">05–06/2026</td><td class="p">Dungu, Haut-Uélé</td><td data-i18n="d3_a">Suspected dracunculiasis investigation, Field Epidemiologist</td></tr>
+              <tr><td class="d">04–05/2026</td><td class="p">Haut-Uélé</td><td data-i18n="d4_a">Vaccination coverage survey, Quality Assurance Officer</td></tr>
+              <tr><td class="d">01–02/2026</td><td class="p">Aketi, Bas-Uélé</td><td data-i18n="d5_a">Mpox vaccination campaign (LC16m8, MVA-BN), field supervision for about 24,000 eligible people</td></tr>
+              <tr><td class="d">09–12/2025</td><td class="p">Bulape, Kasaï</td><td data-i18n="d6_a">16th Ebola outbreak, Lead of the operational research pillar</td></tr>
+              <tr><td class="d">08/2025</td><td class="p">Sankuru</td><td data-i18n="d7_a">Community-based surveillance strengthening with RTI International (Mpox response)</td></tr>
+              <tr><td class="d">06–07/2025</td><td class="p">Kinshasa</td><td data-i18n="d8_a">Risk communication (RCCE) data systems with UNICEF and FHI 360</td></tr>
+              <tr><td class="d">02/2025</td><td class="p" data-i18n="d9_p">DR Congo</td><td data-i18n="d9_a">Zoonotic disease surveillance data quality assessment with Africa CDC</td></tr>
+              <tr><td class="d">01/2025</td><td class="p">Kinshasa</td><td data-i18n="d10_a">Mpox vaccination (MVA-BN): supervision and training of vaccination teams</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap sec">
+      <div class="label" data-i18n="l_edu">Education</div>
+      <div>
+        <h2 data-i18n="h_edu">Education and training</h2>
+        <div class="edu">
+          <div><span class="when" data-i18n="e1_d">2025 – 2027 (expected)</span><div><h3 data-i18n="e1_h">Master of Public Health, Biostatistics</h3><p data-i18n="e1_p">Université des Montagnes, Cameroon · Master 1 completed; practicum at INSP/COUSP, June – August 2026</p></div></div>
+          <div><span class="when">2011 – 2016</span><div><h3 data-i18n="e2_h">Doctor of Medicine (MD)</h3><p>Université Notre Dame du Kasayi, Kananga</p></div></div>
+          <div><span class="when">2008 – 2011</span><div><h3 data-i18n="e3_h">Bachelor's degree in Biomedical Sciences</h3><p>Université Notre Dame du Kasayi, Kananga</p></div></div>
+          <div><span class="when">2025 – 2026</span><div><h3 data-i18n="e4_h">R training, The GRAPH Network, University of Geneva</h3><p data-i18n="e4_p">Basic R Programming (certificate, 2025) · Advanced R Masterclass: R Markdown/Quarto, Shiny, GIS with sf, automation, GitHub (2026) · Research Statistics with R (2026)</p></div></div>
+        </div>
+        <p class="label sublabel" data-i18n="tools_l">Tools</p>
+        <ul class="chips">
+          <li>R</li><li>R Markdown</li><li>Quarto</li><li>Shiny</li><li>sf (GIS)</li><li>Git / GitHub</li><li>Stata</li><li>Excel</li><li>DHIS2 Tracker</li><li>DHIS2 Event</li><li>KoboToolbox</li><li>ODK</li><li>RapidPro / U-Report</li><li>Looker Studio</li>
+        </ul>
+        <p class="label sublabel" data-i18n="methods_l">Methods and frameworks</p>
+        <ul class="chips">
+          <li data-i18n="c1">Epidemic curves</li><li data-i18n="c2">SEIR-type modelling</li><li data-i18n="c3">Rapid risk assessment</li><li>7-1-7</li><li data-i18n="c4">IDSR</li><li data-i18n="c5">Incident Management System</li><li data-i18n="c6">Event-based surveillance</li><li data-i18n="c7">Data quality assessment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap sec">
+      <div class="label" data-i18n="l_pubs">Publications</div>
+      <div>
+        <h2 data-i18n="h_pubs">Publications and reports</h2>
+        <ul class="pubs">
+          <li><span class="yr">2026</span><div><a class="t" href="https://doi.org/10.3390/v18010028" target="_blank" rel="noopener">Seven Strategies Implemented in Response to the 16th Ebola Virus Disease Outbreak in the Democratic Republic of Congo: Lessons Learned over a Three-Month Period</a><span class="m" data-i18n="p1_m"><i>Viruses</i> 2026;18(1):28 · Co-author</span></div></li>
+          <li><span class="yr">2026</span><div><span class="t">Final Mission Report – National Rapid Response Team, 17th Ebola Virus Disease Outbreak, Tshopo Province</span><span class="m" data-i18n="p3_m">INSP/COUSP technical report, September 2026 · Team lead and co-author</span></div></li>
+          <li><span class="yr">2025</span><div><a class="t" href="https://doi.org/10.26502/jppd.2572-519X0243" target="_blank" rel="noopener">Development of a Bayesian Subjective Model for Predicting the Clinical Diagnosis of Ebola in the Democratic Republic of the Congo</a><span class="m" data-i18n="p2_m"><i>Journal of Psychiatry and Psychiatric Disorders</i> 2025;9(2) · Co-author</span></div></li>
+          <li><span class="yr">2025</span><div><span class="t">Operational Research – 16th Ebola Virus Disease Outbreak</span><span class="m" data-i18n="p4_m">Internal report: qualitative evidence on how local customs and traditional practices influenced outbreak dynamics and response</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap sec">
+      <div class="label" data-i18n="l_contact">Contact</div>
+      <div>
+        <h2 data-i18n="h_contact">Let's work together</h2>
+        <p class="prose" data-i18n="contact_p">Open to collaborations in epidemic intelligence, surveillance analytics and outbreak response.</p>
+        <div class="contact-list">
+          <div><span class="k label" data-i18n="k_email">Email</span><span class="v" id="email-text">b.kabaseleilunga2023@gmail.com</span><button type="button" class="copy" id="copy-email" data-i18n="copy">Copy</button></div>
+          <div><span class="k label">GitHub</span><a class="v" href="https://github.com/bkabaseleilunga-bit" target="_blank" rel="noopener">github.com/bkabaseleilunga-bit</a><span></span></div>
+          <div><span class="k label">ORCID</span><a class="v" href="https://orcid.org/0009-0002-0527-4951" target="_blank" rel="noopener">0009-0002-0527-4951</a><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" data-i18n="footer">© 2026 Dr. Kabasele Ilunga Bienvenu · Updated October 2026</div>
+</footer>
+
+<script>
+(function () {
+  var FR = {
+    nav_results: "Résultats", nav_about: "À propos", nav_work: "Réalisations", nav_exp: "Parcours", nav_edu: "Formation", nav_pubs: "Publications", nav_contact: "Contact",
+    eyebrow: "Médecin · Intelligence en santé publique · Épidémiologie de terrain",
+    thesis: "Je transforme les données d'épidémie en <mark>décisions</mark>, et j'aide les équipes nationales à continuer de le faire en autonomie.",
+    sub: "Chargé d'intelligence en santé publique au Centre d'opérations d'urgence de santé publique (COUSP) de l'Institut National de Santé Publique de la RDC. Dix ans en médecine et en santé publique, dont sept dans la surveillance et la riposte aux épidémies.",
+    cta_contact: "Me contacter", cta_work: "Voir mes réalisations",
+    f_base: "Basé à", f_ebola: "Ripostes Ebola", f_prov: "Provinces", f_prov_s: "Terrain · RD Congo", f_lang: "Langues", f_lang_s: "Langue maternelle · Professionnel",
+    l_results: "Résultats de terrain",
+    h_results: "17e riposte Ebola, province de la Tshopo",
+    results_intro: "Virus Bundibugyo, du 16 juillet au 22 septembre 2026. J'ai coordonné l'équipe nationale d'intervention rapide au sein du système de gestion de l'incident (IMS) provincial, aux côtés de la Division provinciale de la santé de la Tshopo.",
+    m_ims: "Recommandations de l'IMS exécutées", m_alerts: "Alertes investiguées",
+    before: "Avant", after: "Après", before2: "Avant", after2: "Après",
+    v40: "40 %", v76: "76 %", v70: "70 %", v96: "96–100 %",
+    fig_sitrep: "SITREP provinciaux quotidiens, dont 92 % produits à temps",
+    fig_dhis2: "agents provinciaux formés sur DHIS2 Tracker",
+    fig_partners: "partenaires alignés autour d'un seul IMS, dont l'OMS, Africa CDC et le CDC américain",
+    fig_beds: "lits au centre de traitement, une extension guidée par notre évaluation des capacités",
+    l_about: "À propos",
+    h_about: "De la salle d'hôpital au centre d'opérations d'urgence",
+    about_1: "Je suis médecin, basé à Kinshasa. J'ai commencé comme médecin hospitalier à Mungbere, dans le Haut-Uélé, puis je me suis orienté vers la riposte aux épidémies : Ebola à Butembo et à Mbandaka, la COVID-19 avec les Volontaires des Nations Unies, puis le mpox, la rougeole-rubéole et le choléra.",
+    about_2: "Depuis octobre 2024, je travaille au COUSP, où je transforme les données de surveillance en produits utilisés par les décideurs : SPOTREP, bulletin hebdomadaire de veille, évaluations des risques et tableaux de bord. Je les construis avec R et Quarto pour qu'ils se régénèrent automatiquement, et je forme et accompagne les personnes qui les feront vivre.",
+    about_3: "Je termine un master en santé publique, option biostatistique, à l'Université des Montagnes. Ma recherche développe un outil intégré de prédiction du risque d'épidémies zoonotiques, qui combine les données de surveillance, climatiques, environnementales et de vulnérabilité des zones de santé avec des facteurs socio-anthropologiques.",
+    l_exp: "Ce que je fais",
+    x1_h: "Utilisation des données pour la décision",
+    x1_p: "SITREP d'épidémie, SPOTREP, bulletins épidémiologiques et de veille, évaluations rapides des risques (7-1-7), tableaux de bord et projections de type SEIR.",
+    x2_h: "Analyse et chaînes de production automatisées",
+    x2_p: "R, R Markdown/Quarto, Shiny et SIG sous R, avec Git/GitHub ; DHIS2 Tracker et Event, KoboToolbox/ODK, Looker Studio, Stata.",
+    x3_h: "Renforcement des capacités et accompagnement",
+    x3_p: "Conception et animation de formations, mentorat pratique des équipes de surveillance et de données, et procédures opérationnelles (SOP) pour une passation durable.",
+    x4_h: "Surveillance collaborative et coordination",
+    x4_p: "Surveillance fondée sur les indicateurs, les événements et la communauté, SIMR, systèmes de gestion de l'incident et coordination avec l'OMS, Africa CDC, le CDC américain, l'UNICEF et d'autres partenaires.",
+    l_work: "Réalisations", h_work: "Projets et produits",
+    w1_h: "Coordination de la 17e riposte Ebola",
+    w1_p: "Direction d'une équipe nationale de sept membres (coordination, données, surveillance, points d'entrée, PCI, prise en charge, laboratoire). Harmonisation des données de surveillance et de laboratoire, registre de suivi des recommandations et coordination du rapport final de mission, avec des projections de type SEIR à six mois.",
+    w2_l: "2024 – aujourd'hui · COUSP",
+    w2_h: "Produits d'intelligence sanitaire",
+    w2_p: "SPOTREP sur les menaces de santé publique vérifiées, bulletin hebdomadaire de veille et rapports quotidiens de vérification des signaux pour la direction du COUSP. J'ai aussi contribué à repenser le circuit : réception des signaux, vérification, SPOTREP, bulletin.",
+    w3_h: "Atlas dynamique de préparation Ebola",
+    w3_p: "Cartes pour l'équipe nationale de préparation montrant les zones de santé affectées, à haut risque et exposées par la mobilité, sur les limites GRID3, régénérées à chaque nouvelle mise à jour de la situation.",
+    w4_h: "Recherche opérationnelle, 16e épidémie d'Ebola",
+    w4_p: "Responsable du pilier recherche opérationnelle : protocoles de recherche, étude de l'influence des coutumes locales et des pratiques traditionnelles sur la transmission et la riposte, et documentation de la revue après action.",
+    w5_l: "2025 · avec l'UNICEF et FHI 360",
+    w5_h: "Systèmes de données de communication des risques",
+    w5_p: "Base de données CREC et tableaux de bord du centre d'appels pour les ripostes au mpox et au choléra.",
+    w6_l: "2025 · avec Africa CDC",
+    w6_h: "Évaluation de la qualité des données de surveillance",
+    w6_p: "Évaluation de la complétude, de la promptitude et de la cohérence des données de surveillance des maladies zoonotiques.",
+    l_xp: "Parcours", h_xp: "Postes occupés",
+    r1_d: "juil. – sept. 2026", r1_h: "Coordonnateur provincial, équipe nationale d'intervention rapide", r1_o: "INSP/COUSP · 17e riposte Ebola · Kisangani, Tshopo",
+    r2_d: "oct. 2024 – aujourd'hui", r2_h: "Chargé d'intelligence en santé publique, surveillance fondée sur les indicateurs et recherche &amp; innovation", r2_o: "COUSP · Institut National de Santé Publique (INSP) · Kinshasa",
+    r3_d: "août – sept. 2022", r3_h: "Superviseur de la surveillance sur le terrain", r3_o: "Ministère de la Santé / INSP · 15e épidémie d'Ebola · Mbandaka, Équateur",
+    r4_h: "Coordonnateur de zone de santé, riposte à la COVID-19", r4_o: "Volontaires des Nations Unies · zones de santé de Kinshasa et de Lingwala",
+    r5_d: "oct. 2019 – juin 2020", r5_h: "Appui à la riposte et rapportage de la surveillance", r5_o: "Ministère de la Santé · 10e épidémie d'Ebola · Butembo, Nord-Kivu",
+    r6_h: "Médecin", r6_o: "Hôpital ANOALITE de Mungbere · Haut-Uélé",
+    log_l: "Journal des missions de terrain · INSP/COUSP",
+    th_d: "Dates", th_p: "Lieu", th_a: "Mission",
+    d1_p: "Kinshasa et provinces",
+    d1_a: "IMS rougeole-rubéole, chargé des opérations : outils numériques de rapportage des zones de santé dans dix provinces",
+    d2_a: "Investigation d'un syndrome digestif aigu (environ 60 patients, 15 décès), évaluation rapide des risques selon le cadre 7-1-7",
+    d3_a: "Investigation de cas suspects de dracunculose, épidémiologiste de terrain",
+    d4_a: "Enquête de couverture vaccinale, chargé de l'assurance qualité",
+    d5_a: "Campagne de vaccination contre le mpox (LC16m8, MVA-BN), supervision de terrain pour environ 24 000 personnes éligibles",
+    d6_a: "16e épidémie d'Ebola, responsable du pilier recherche opérationnelle",
+    d7_a: "Renforcement de la surveillance à base communautaire avec RTI International (riposte au mpox)",
+    d8_a: "Systèmes de données de communication des risques (CREC) avec l'UNICEF et FHI 360",
+    d9_p: "RD Congo",
+    d9_a: "Évaluation de la qualité des données de surveillance des maladies zoonotiques avec Africa CDC",
+    d10_a: "Vaccination contre le mpox (MVA-BN) : supervision et formation des équipes de vaccination",
+    l_edu: "Formation", h_edu: "Formation et certifications",
+    e1_d: "2025 – 2027 (prévu)", e1_h: "Master en santé publique, option biostatistique",
+    e1_p: "Université des Montagnes, Cameroun · Master 1 validé ; stage à l'INSP/COUSP, juin – août 2026",
+    e2_h: "Docteur en médecine",
+    e3_h: "Graduat en sciences biomédicales",
+    e4_h: "Formations R, The GRAPH Network, Université de Genève",
+    e4_p: "Basic R Programming (certificat, 2025) · Advanced R Masterclass : R Markdown/Quarto, Shiny, SIG avec sf, automatisation, GitHub (2026) · Research Statistics with R (2026)",
+    tools_l: "Outils", methods_l: "Méthodes et cadres",
+    c1: "Courbes épidémiques", c2: "Modélisation de type SEIR", c3: "Évaluation rapide des risques", c4: "SIMR", c5: "Système de gestion de l'incident", c6: "Surveillance fondée sur les événements", c7: "Évaluation de la qualité des données",
+    l_pubs: "Publications", h_pubs: "Publications et rapports",
+    p1_m: "<i>Viruses</i> 2026;18(1):28 · Coauteur",
+    p2_m: "<i>Journal of Psychiatry and Psychiatric Disorders</i> 2025;9(2) · Coauteur",
+    p3_m: "Rapport technique INSP/COUSP, septembre 2026 · Chef d'équipe et coauteur",
+    p4_m: "Rapport interne : données qualitatives sur l'influence des coutumes locales et des pratiques traditionnelles sur la dynamique de l'épidémie et la riposte",
+    l_contact: "Contact", h_contact: "Travaillons ensemble",
+    contact_p: "Ouvert aux collaborations en intelligence épidémique, analyse des données de surveillance et riposte aux épidémies.",
+    k_email: "E-mail", copy: "Copier",
+    footer: "© 2026 Dr Kabasele Ilunga Bienvenu · Mis à jour en octobre 2026",
+    alt_photo: "Portrait du Dr Kabasele Ilunga Bienvenu"
+  };
+  var COPIED = { en: "Copied", fr: "Copié" };
+  var els = Array.prototype.slice.call(document.querySelectorAll("[data-i18n]"));
+  els.forEach(function (el) { el.setAttribute("data-en", el.innerHTML); });
+  var img = document.querySelector("[data-i18n-alt]");
+  var altEn = img ? img.getAttribute("alt") : "";
+  var current = "en";
+
+  function setLang(l) {
+    current = l;
+    els.forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      el.innerHTML = (l === "fr" && FR[k] !== undefined) ? FR[k] : el.getAttribute("data-en");
+    });
+    if (img) img.setAttribute("alt", l === "fr" ? FR.alt_photo : altEn);
+    document.documentElement.lang = l;
+    document.querySelectorAll(".lang button").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l));
+    });
+    try { localStorage.setItem("kib-lang", l); } catch (e) {}
+  }
+
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+  });
+
+  var start = "en";
+  try {
+    var saved = localStorage.getItem("kib-lang");
+    if (saved === "en" || saved === "fr") start = saved;
+    else if ((navigator.language || "").toLowerCase().indexOf("fr") === 0) start = "fr";
+  } catch (e) {
+    if ((navigator.language || "").toLowerCase().indexOf("fr") === 0) start = "fr";
+  }
+  if (start !== "en") setLang(start);
+
+  var btn = document.getElementById("copy-email");
+  var txt = document.getElementById("email-text");
+  if (btn && txt) {
+    btn.addEventListener("click", function () {
+      var done = function () {
+        btn.textContent = COPIED[current];
+        setTimeout(function () { btn.innerHTML = current === "fr" ? FR.copy : btn.getAttribute("data-en"); }, 1600);
+      };
+      var fallback = function () {
+        var r = document.createRange(); r.selectNodeContents(txt);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      };
+      try {
+        navigator.clipboard.writeText(txt.textContent.trim()).then(done, fallback);
+      } catch (e) { fallback(); }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
