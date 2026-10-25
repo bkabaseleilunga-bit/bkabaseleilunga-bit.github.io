@@ -157,6 +157,8 @@
   .card:hover { transform: translateY(-2px); border-color: rgba(65, 184, 244, 0.55); }
   .card .label { color: var(--gold); }
   .card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+  .card-link { margin-top: auto; padding-top: 6px; font-size: 0.9rem; font-weight: 500; color: var(--gold); text-decoration: none; }
+  .card-link:hover { text-decoration: underline; }
 
   /* Experience */
   .roles { list-style: none; margin: 0 0 40px; padding: 0 0 0 22px; display: grid; gap: 0; position: relative; }
@@ -340,7 +342,7 @@
         <h2 data-i18n="h_work">Projects and products</h2>
         <div class="cards">
           <article class="card"><span class="label" data-i18n="w0_l">2026 – present · CGPP</span><h3 data-i18n="w0_h">Ebola preparedness in non-affected health zones</h3><p data-i18n="w0_p">Coordinating implementing partners in Tshopo: health-zone readiness assessments and preparedness plans, stronger surveillance and alert systems (community- and event-based), and training and supervision of health workers and community staff.</p></article>
-          <article class="card"><span class="label">2026 · Tshopo</span><h3 data-i18n="w1_h">Coordinating the 17th Ebola response</h3><p data-i18n="w1_p">Led a seven-member national team (coordination, data, surveillance, points of entry, IPC, case management, laboratory). Harmonised surveillance and laboratory data, ran a recommendation-tracking register and coordinated the final mission report with SEIR-type six-month projections.</p></article>
+          <article class="card"><span class="label">2026 · Tshopo</span><h3 data-i18n="w1_h">Coordinating the 17th Ebola response</h3><p data-i18n="w1_p">Led a seven-member national team (coordination, data, surveillance, points of entry, IPC, case management, laboratory). Harmonised surveillance and laboratory data, ran a recommendation-tracking register and coordinated the final mission report with SEIR-type six-month projections.</p><a class="card-link" href="https://bkabaseleilunga-bit.github.io/rapport-mve-tshopo-2026/" data-i18n="w1_link">Read the final mission report →</a></article>
           <article class="card"><span class="label" data-i18n="w2_l">2024 – present · COUSP</span><h3 data-i18n="w2_h">Health intelligence products</h3><p data-i18n="w2_p">SPOTREPs on verified public health threats, the weekly surveillance bulletin and daily signal-verification reports for COUSP leadership. I also helped redesign the workflow from signal intake to verification, SPOTREP and bulletin.</p></article>
           <article class="card"><span class="label">R · Quarto · GRID3</span><h3 data-i18n="w3_h">Dynamic Ebola preparedness atlas</h3><p data-i18n="w3_p">Maps for the national preparedness team showing affected, high-risk and mobility-exposed health zones on GRID3 boundaries, regenerated with each new situation update.</p></article>
           <article class="card"><span class="label">2025 · Bulape, Kasaï</span><h3 data-i18n="w4_h">Operational research, 16th Ebola outbreak</h3><p data-i18n="w4_p">Led the operational research pillar: research protocols, a study of how local customs and traditional practices shaped transmission and response, and after-action review documentation.</p></article>
@@ -481,6 +483,7 @@
     l_work: "Réalisations", h_work: "Projets et produits",
     w1_h: "Coordination de la 17e riposte Ebola",
     w1_p: "Direction d'une équipe nationale de sept membres (coordination, données, surveillance, points d'entrée, PCI, prise en charge, laboratoire). Harmonisation des données de surveillance et de laboratoire, registre de suivi des recommandations et coordination du rapport final de mission, avec des projections de type SEIR à six mois.",
+    w1_link: "Lire le rapport final de mission →",
     w2_l: "2024 – aujourd'hui · COUSP",
     w2_h: "Produits d'intelligence sanitaire",
     w2_p: "SPOTREP sur les menaces de santé publique vérifiées, bulletin hebdomadaire de veille et rapports quotidiens de vérification des signaux pour la direction du COUSP. J'ai aussi contribué à repenser le circuit : réception des signaux, vérification, SPOTREP, bulletin.",
